@@ -9,14 +9,14 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
             @if (Auth::guest())
-                <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
-                <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">S'inscrire</a></li>
+                <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">S'enregistrer</a></li>
             @else
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->firstname }}</a>
                     <div class="dropdown-menu">
                         <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                            Logout
+                            Se déconnecter
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
