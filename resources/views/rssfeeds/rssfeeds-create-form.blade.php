@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title','Ajout de contenu')
 @section('content')
 <div class="container">
 <br/> 
@@ -11,12 +12,15 @@
             </div>
             <form class="form-horizontal" method="POST" action="{{ url('/home/rssfeeds') }}">
             {{ csrf_field() }}
-            <label for="name">Nom du site</label>
-                <input id="name" type="text" class="form-control" name="name" required autofocus>
-            <label for="name">Lien du flux rss</label>
-                <input id="rss_feed_link" type="text" class="form-control" name="rss_feed_link" required autofocus> 
-
-                <button type="submit" class="btn btn-primary">Ajouter</button>
+            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                <label for="name">Nom du site</label>
+                    <input id="name" type="text" class="form-control" name="name" required autofocus>
+            </div>
+            <div class="form-group{{ $errors->has('rss_feed_link') ? ' has-error' : '' }}">
+                <label for="rss_feed_link">Lien du flux rss</label>
+                    <input id="rss_feed_link" type="text" class="form-control" name="rss_feed_link" required autofocus> 
+            </div>
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
             </form>
 
             </div>

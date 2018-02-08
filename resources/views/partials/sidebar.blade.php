@@ -9,7 +9,7 @@
 
     
             <li class="active">
-                <a href="{{ url('/home') }}" ><i class="fa fa-home"></i> Accueil</a>
+                <a href="{{ url('/home') }}" ><i class="fa fa-home"></i> Toutes les actualités</a>
                 
             </li>
 
@@ -44,8 +44,11 @@
                         <div class="navbar-header"><a href="{{ route('login') }}" class="nav-link">S'inscrire</a></div>
                         <div class="navbar-header"><a href="{{ route('register') }}" class="nav-link">S'enregistrer</a></div>
                     @else
-
+                    <div>
+                        <img class="img-thumbnail" style="height: 100px;width: 100px;position: absolute;right: 220px;bottom: -30px;" src="{{ url('images/profilepicture.jpg') }}" width="200">
+                    </div>  
                     <button class="nav-link dropdown-toggle btn btn-default navbar-btn" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                        
                       {{ Auth::user()->lastname }}
                       {{ Auth::user()->firstname }}  
                     </button>

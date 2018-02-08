@@ -6,7 +6,7 @@ use App\Rssfeed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\RssFeed as RssFeedResource;
+use App\Http\Resources\Rssfeed as RssFeedResource;
 
 class RssfeedController extends Controller
 {
@@ -25,7 +25,7 @@ class RssfeedController extends Controller
     {
         $userid = Auth::user()->id;
         // dd($userid);
-        return view('Rssfeeds.rssfeeds-create-form', ['userid' => $userid]);
+        return view('rssfeeds.rssfeeds-create-form', ['userid' => $userid]);
     }
 
     public function store(Request $request)
@@ -36,7 +36,7 @@ class RssfeedController extends Controller
             'user_id' => 'required',
           ]);
 
-          RssFeed::create($request->all());
+          Rssfeed::create($request->all());
         //   dd($newsitem);
         
         return redirect('/home')->with('success',"Le flux a bien été ajouté");
@@ -51,17 +51,17 @@ class RssfeedController extends Controller
 
     public function api_index()
     {
-        $rssfeeds = RssFeed::all();
+        $rssfeeds = Rssfeed::all();
 
-        return RssFeedResource::collection($rssfeeds);
+        return RssfeedResource::collection($rssfeeds);
     }// méthodes pour l'api
     
         
     public function api_show($id)
     {
-        $rssfeed = RssFeed::findOrFail($id);
+        $rssfeed = Rssfeed::findOrFail($id);
 
-        return new RssFeedResource($rssfeed);
+        return new RssfeedResource($rssfeed);
     }
     
     public function api_store(Request $request)

@@ -28,7 +28,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   
   <div class="sidebar-header">
-      <img align="center" src="{{ url('images/feedsspeed.png') }}" width="50">
+      <img align="center" src="{{ url('images/logofeedsspeed.png') }}" width="50">
   </div>
 
   <ul class="navbar-nav mr-auto">
